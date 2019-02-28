@@ -12,6 +12,9 @@ build:
   project: SQLite.CodeFirst.sln
   parallel: true
   verbosity: normal
+build_script:   
+- cmd: choco install "msbuild-sonarqube-runner" -y
+- cmd: SonarScanner.MSBuild.exe begin /k:"msallin_SQLiteCodeFirst" /d:sonar.organization="msallin-github" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="89b526c0e4ef876d127239683e52818a176b6bac"
 artifacts:
 - path: SQLite.CodeFirst\bin\Debug\**\SQLite.CodeFirst.dll
   name: Debug
